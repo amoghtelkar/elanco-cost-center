@@ -37,7 +37,7 @@ export default function AppTable({ headers, items, rows, page, setPage, onSortCh
   }
 
   return items.length > 0 && headers.length > 0 ? (
-  <Container xl>
+  <Container css={{w:'auto'}}>
     <Table
       bordered
       shadow={false}
@@ -45,7 +45,8 @@ export default function AppTable({ headers, items, rows, page, setPage, onSortCh
       aria-label="Example pagination  table"
       css={{
         height: "auto",
-        minWidth: "100%",
+        minWidth: "auto",
+        w:"auto"
       }}
       selectionMode="multiple"
       onSortChange={handleSortColumnChange}

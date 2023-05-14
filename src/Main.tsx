@@ -119,7 +119,7 @@ export const Main = () => {
     setItems(tempItems);
   }
   return (
-    <Container md>
+    <Container css={{w:'auto'}}>
 
       <Grid.Container gap={2} justify="center">
         <Grid >
@@ -128,15 +128,19 @@ export const Main = () => {
         <Grid >
           <AppDropDown buttonColor="success" value={application} placeholder="Applications" menuColor="success" onAction={handleApplicationsChange} dropDownValues={applicationsDVs} />
         </Grid>
+        {application || resource ? 
         <Grid>
           <AppDropDown buttonColor="secondary" value={rows} placeholder="Select Rows" menuColor="warning" onAction={handleRowChange} dropDownValues={rowsDVs} />
         </Grid>
+        : null}
+        {application || resource ? 
         <Grid>
           <Input clearable placeholder="Search" onChange={handleSearchChange} />
         </Grid>
+        : null }
       </Grid.Container>
       <Grid.Container gap={2} justify="center" >
-        <Grid>
+        <Grid css={{w:"auto"}}>
           {resource || application ?
             <AppTable headers={headers} items={items} rows={rows} page={page} setPage={setPage} onSortChange={handleSortChange}/>
             :
